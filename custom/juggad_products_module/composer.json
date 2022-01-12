@@ -1,0 +1,9 @@
+{
+    "name": "drupal/juggard_products_module",
+    "type": "drupal-module",
+    "description": "Barcode library.",
+    "require": {
+        "aferrandini/phpqrcode": "^1.0"
+    }
+   
+}

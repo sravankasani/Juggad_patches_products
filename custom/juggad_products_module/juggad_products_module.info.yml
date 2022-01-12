@@ -1,0 +1,8 @@
+name: Juggad Products
+type: module
+description: 'Module for Juggad Products'
+core: 8.x
+version: 8.9.1
+project: drupal
+dependencies:
+  - node
