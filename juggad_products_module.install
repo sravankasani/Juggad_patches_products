@@ -1,0 +1,36 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the jugaad products module.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function juggad_products_module_install() {
+  \Drupal::configFactory()->getEditable('system.site')->set('page.front', '/juggad-products-display')->save();
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function juggad_products_module_uninstall() {
+  // Setting home page path to default on module uninstall.
+  \Drupal::configFactory()->getEditable('system.site')->set('page.front', '/node')->save();
+  // Delete all nodes of juggad_patches content type on module uninstall.
+  $storage_handler = \Drupal::entityTypeManager()
+    ->getStorage('node');
+  $nodes = $storage_handler->loadByProperties(['type' => 'juggad_patches']);
+  if (!empty($nodes)) {
+    $storage_handler->delete($nodes);
+  }
+
+  // Delete juggad_patches content type on module uninstall.
+  $content_type = \Drupal::entityTypeManager()
+    ->getStorage('node_type')
+    ->load('juggad_patches');
+  if (!empty($content_type)) {
+    $content_type->delete();
+  }
+}

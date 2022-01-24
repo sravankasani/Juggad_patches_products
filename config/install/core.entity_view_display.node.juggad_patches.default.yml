@@ -1,0 +1,36 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.juggad_patches.body
+    - field.field.node.juggad_patches.field_product_image
+    - field.field.node.juggad_patches.field_purchase_link
+    - node.type.juggad_patches
+  module:
+    - image
+    - link
+    - text
+    - user
+id: node.juggad_patches.default
+targetEntityType: node
+bundle: juggad_patches
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 103
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_product_image:
+    label: hidden
+    weight: 101
+    settings:
+      image_style: medium
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+hidden:
+   field_purchase_link: true

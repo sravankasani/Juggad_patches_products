@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - juggad_products_module
+  theme:
+    - bartik
+_core:
+  default_config_hash: rT6lT_u7CdhNiwgTXkHS9dqo5fq8Q5nyv22B73FAdaA
+id: juggadbarcodeblock
+theme: bartik
+region: sidebar_second
+weight: 0
+provider: null
+plugin: juggad_barcode_block
+settings:
+  id: juggad_barcode_block
+  label: 'Juggad QR Code block'
+  label_display: '0'
+  provider: juggad_products_module
+visibility: {  }
